@@ -2,7 +2,6 @@
     const desktopMotion = window.matchMedia('(min-width: 781px) and (hover: hover) and (prefers-reduced-motion: no-preference)');
 
     const phoneInput = document.querySelector('input[name="phone"]');
-    const staticPagesMode = document.documentElement.dataset.static === 'github-pages';
 
     if (phoneInput) {
         phoneInput.addEventListener('input', () => {
@@ -12,27 +11,13 @@
 
     const form = document.querySelector('.lead-form');
     if (form) {
-        if (staticPagesMode) {
-            const notice = document.createElement('div');
-            notice.className = 'notice notice--static';
-            notice.setAttribute('role', 'status');
-            notice.textContent = 'На GitHub Pages форма работает как демонстрация. Для записи позвоните напрямую: +7 (977) 385-05-72.';
-            form.prepend(notice);
-
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                notice.textContent = 'Для быстрой записи позвоните: +7 (977) 385-05-72. PHP-обработка формы доступна при размещении на PHP-хостинге.';
-                notice.scrollIntoView({ block: 'nearest' });
-            });
-        } else {
-            form.addEventListener('submit', () => {
-                const button = form.querySelector('button[type="submit"]');
-                if (button) {
-                    button.textContent = 'Отправляем...';
-                    button.disabled = true;
-                }
-            });
-        }
+        form.addEventListener('submit', () => {
+            const button = form.querySelector('button[type="submit"]');
+            if (button) {
+                button.textContent = 'Отправляем...';
+                button.disabled = true;
+            }
+        });
     }
 
     const currentHashTarget = () => document.querySelector(window.location.hash);

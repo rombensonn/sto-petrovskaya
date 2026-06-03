@@ -38,8 +38,6 @@ body {
     margin: 0;
     overflow-x: hidden;
     background:
-        linear-gradient(90deg, rgba(21, 23, 19, .045) 1px, transparent 1px) 0 0 / 34px 34px,
-        linear-gradient(0deg, rgba(21, 23, 19, .035) 1px, transparent 1px) 0 0 / 34px 34px,
         radial-gradient(circle at 18% -10%, rgba(244, 93, 34, .18), transparent 34%),
         linear-gradient(180deg, var(--bg), #f4f0e7 42%, var(--bg-2));
     color: var(--ink);
@@ -179,13 +177,7 @@ select {
 }
 
 .brand__mark::after {
-    position: absolute;
-    inset: auto -20% 8px;
-    height: 8px;
-    content: "";
-    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .8) 0 8px, transparent 8px 14px);
-    opacity: .35;
-    transform: rotate(-12deg);
+    display: none;
 }
 
 .brand strong {
@@ -292,29 +284,6 @@ select {
         linear-gradient(110deg, rgba(21, 23, 19, .96) 0%, rgba(21, 23, 19, .9) 46%, rgba(36, 42, 35, .72) 100%),
         url("industrial-hero.jpg") center / cover;
     color: var(--paper);
-}
-
-.hero::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background:
-        linear-gradient(90deg, rgba(244, 93, 34, .2) 1px, transparent 1px) 0 0 / 96px 96px,
-        linear-gradient(0deg, rgba(247, 244, 236, .07) 1px, transparent 1px) 0 0 / 96px 96px;
-    mask-image: linear-gradient(90deg, #000, transparent 72%);
-    pointer-events: none;
-}
-
-.hero::after {
-    position: absolute;
-    right: -120px;
-    bottom: -180px;
-    width: 460px;
-    height: 460px;
-    content: "";
-    border: 1px solid rgba(244, 93, 34, .28);
-    transform: rotate(18deg);
-    pointer-events: none;
 }
 
 .hero__grid {
@@ -465,44 +434,6 @@ dd {
     box-shadow: var(--shadow);
 }
 
-.booking-card__media {
-    position: relative;
-    min-height: 190px;
-    overflow: hidden;
-    background: var(--panel);
-}
-
-.booking-card__media img {
-    width: 100%;
-    height: 210px;
-    object-fit: cover;
-    filter: saturate(1.04) contrast(1.06);
-}
-
-.booking-card__media::after {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background:
-        linear-gradient(180deg, transparent 44%, rgba(0, 0, 0, .66)),
-        repeating-linear-gradient(135deg, transparent 0 16px, rgba(244, 93, 34, .16) 16px 18px);
-    pointer-events: none;
-}
-
-.booking-card__media span {
-    position: absolute;
-    z-index: 1;
-    right: 12px;
-    bottom: 12px;
-    max-width: calc(100% - 24px);
-    border: 1px solid rgba(247, 244, 236, .3);
-    background: rgba(21, 23, 19, .76);
-    color: var(--paper);
-    padding: 7px 9px;
-    font-size: 11px;
-    font-weight: 900;
-}
-
 .booking-card__body {
     padding: 24px;
 }
@@ -603,11 +534,6 @@ textarea:focus {
     color: var(--danger);
 }
 
-.notice--static {
-    background: rgba(244, 93, 34, .1);
-    color: #8d3212;
-}
-
 .section {
     padding: 78px 0;
 }
@@ -617,9 +543,7 @@ textarea:focus {
 }
 
 .section--muted {
-    background:
-        linear-gradient(90deg, rgba(21, 23, 19, .05) 1px, transparent 1px) 0 0 / 28px 28px,
-        linear-gradient(180deg, #dfd8cb, #f2eee6);
+    background: linear-gradient(180deg, #dfd8cb, #f2eee6);
 }
 
 .section--dark {
@@ -629,14 +553,6 @@ textarea:focus {
         radial-gradient(circle at 88% 16%, rgba(244, 93, 34, .16), transparent 30%),
         linear-gradient(135deg, #11130f, #20251f);
     color: var(--paper);
-}
-
-.section--dark::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background: repeating-linear-gradient(135deg, transparent 0 18px, rgba(247, 244, 236, .04) 18px 19px);
-    pointer-events: none;
 }
 
 .section--contact {
@@ -724,9 +640,7 @@ details p {
     flex-direction: column;
     justify-content: flex-end;
     border: 1px solid rgba(21, 23, 19, .2);
-    background:
-        linear-gradient(135deg, rgba(21, 23, 19, .93), rgba(35, 40, 33, .9)),
-        repeating-linear-gradient(135deg, transparent 0 20px, rgba(244, 93, 34, .12) 20px 22px);
+    background: linear-gradient(135deg, rgba(21, 23, 19, .93), rgba(35, 40, 33, .9));
     color: var(--paper);
     padding: 34px;
 }
@@ -821,9 +735,7 @@ details p {
     position: relative;
     overflow: hidden;
     padding: 30px;
-    background:
-        linear-gradient(135deg, rgba(247, 244, 236, .95), rgba(238, 233, 221, .9)),
-        repeating-linear-gradient(135deg, transparent 0 20px, rgba(21, 23, 19, .05) 20px 22px);
+    background: linear-gradient(135deg, rgba(247, 244, 236, .95), rgba(238, 233, 221, .9));
     box-shadow: 0 20px 60px rgba(21, 23, 19, .12);
 }
 
@@ -1110,8 +1022,7 @@ details p {
         box-shadow: 0 18px 44px rgba(21, 23, 19, .12);
     }
 
-    .photo-card:hover img,
-    .booking-card:hover .booking-card__media img {
+    .photo-card:hover img {
         transform: scale(1.035);
         filter: saturate(1.08) contrast(1.1);
     }
@@ -1162,9 +1073,7 @@ details p {
 
     body {
         padding-bottom: 78px;
-        background:
-            linear-gradient(90deg, rgba(21, 23, 19, .035) 1px, transparent 1px) 0 0 / 26px 26px,
-            linear-gradient(180deg, var(--bg), #f4f0e7 52%, var(--bg-2));
+        background: linear-gradient(180deg, var(--bg), #f4f0e7 52%, var(--bg-2));
     }
 
     .container {
@@ -1199,11 +1108,6 @@ details p {
 
     .hero {
         padding: 34px 0 34px;
-    }
-
-    .hero::before,
-    .hero::after {
-        display: none;
     }
 
     .hero__content {
